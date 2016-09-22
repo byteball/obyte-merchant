@@ -1,0 +1,1 @@
+*/5 * * * * cd byteball-merchant; node check_daemon.js 1>>~/.config/byteball-merchant/check_daemon.log 2>>~/.config/byteball-merchant/check_daemon.err
