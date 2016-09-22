@@ -241,7 +241,7 @@ eventBus.on('text', function(from_address, text){
 eventBus.on('new_my_transactions', function(arrUnits){
 	db.query(
 		"SELECT state_id, outputs.unit, device_address, states.amount AS expected_amount, outputs.amount AS paid_amount \n\
-		FROM outputs JOIN states USING(address) WHERE outputs.unit IN(?) AND pay_date IS NULL", 
+		FROM outputs JOIN states USING(address) WHERE outputs.unit IN(?) AND outputs.asset IS NULL AND pay_date IS NULL", 
 		[arrUnits], 
 		function(rows){
 			rows.forEach(function(row){
