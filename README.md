@@ -38,6 +38,9 @@ When the daemon starts, it prints out its pairing code (see it in the first line
 
 Before you can sell stuff, pair the chatbot with its home wallet (the wallet that collects revenue from sales).  When you do this, a copy of your home wallet (without private keys) is created in the chatbot and synced with the home wallet.  After this point, the chatbot is ready to accept payments, and you will immediately see the payments in your home wallet.
 
+## TOR
+
+You can configure the merchant to connect to peers through TOR (see [conf.socksHost, conf.socksPort, and conf.socksLocalDNS](../../../byteballcore#confsockshost-confsocksport-and-confsockslocaldns)) in order to hide its IP address.  Your customers don't need to run TOR.
 
 ## Customize
 
