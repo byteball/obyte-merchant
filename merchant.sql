@@ -1,6 +1,6 @@
 CREATE TABLE states (
     state_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    device_address CHAR(32) NOT NULL,
+    device_address CHAR(33) NOT NULL,
     creation_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     step VARCHAR(50) NOT NULL,
     `order` VARCHAR(1000) NOT NULL,
