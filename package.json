@@ -3,7 +3,7 @@
   "description": "Byteball Merchant",
   "author": "Byteball",
   "version": "0.1.0",
-  "main": "start.js",
+  "main": "merchant.js",
   "keywords": [
     "merchant",
     "byteball",
