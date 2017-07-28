@@ -12,7 +12,7 @@ exports.storage = 'sqlite';
 
 exports.hub = 'byteball.org/bb';
 exports.deviceName = 'Merchant Demo';
-exports.permanent_paring_secret = '0000';
+exports.permanent_pairing_secret = '0000';
 exports.KEYS_FILENAME = 'keys.json';
 
 // home wallet (replace these values with the properties of your wallet that is to collect the revenue from sales)

@@ -132,11 +132,11 @@ function handleNoWallet(from_address){
 
 replaceConsoleLog();
 
-if (!conf.permanent_paring_secret)
-	throw Error('no conf.permanent_paring_secret');
+if (!conf.permanent_pairing_secret)
+	throw Error('no conf.permanent_pairing_secret');
 db.query(
 	"INSERT "+db.getIgnore()+" INTO pairing_secrets (pairing_secret, expiry_date, is_permanent) VALUES(?, '2035-01-01', 1)", 
-	[conf.permanent_paring_secret]
+	[conf.permanent_pairing_secret]
 );
 
 db.query("SELECT wallet FROM wallets", function(rows){
@@ -161,7 +161,7 @@ readKeys(function(devicePrivKey, deviceTempPrivKey, devicePrevTempPrivKey){
 	device.setDeviceHub(conf.hub);
 	var my_device_pubkey = device.getMyDevicePubKey();
 	console.log("my device pubkey: "+my_device_pubkey);
-	console.log("my pairing code: "+my_device_pubkey+"@"+conf.hub+"#"+conf.permanent_paring_secret);
+	console.log("my pairing code: "+my_device_pubkey+"@"+conf.hub+"#"+conf.permanent_pairing_secret);
 });
 
 
