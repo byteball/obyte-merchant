@@ -173,6 +173,10 @@ readKeys(function(devicePrivKey, deviceTempPrivKey, devicePrevTempPrivKey){
 	device.setTempKeys(deviceTempPrivKey, devicePrevTempPrivKey, saveTempKeys);
 	device.setDeviceName(conf.deviceName);
 	device.setDeviceHub(conf.hub);
+	if (conf.bLight){
+		var light_wallet = require('byteballcore/light_wallet.js');
+		light_wallet.setLightVendorHost(conf.hub);
+	}
 	var my_device_pubkey = device.getMyDevicePubKey();
 	console.log("my device pubkey: "+my_device_pubkey);
 	console.log("my pairing code: "+my_device_pubkey+"@"+conf.hub+"#"+conf.permanent_pairing_secret);
