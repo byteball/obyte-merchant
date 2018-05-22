@@ -55,13 +55,27 @@ function readKeys(onDone){
 			var devicePrivKey = crypto.randomBytes(32);
 			var deviceTempPrivKey = crypto.randomBytes(32);
 			var devicePrevTempPrivKey = crypto.randomBytes(32);
-			writeKeys(devicePrivKey, deviceTempPrivKey, devicePrevTempPrivKey, function(){
-				onDone(devicePrivKey, deviceTempPrivKey, devicePrevTempPrivKey);
+			createDir(appDataDir, function(){
+				writeKeys(devicePrivKey, deviceTempPrivKey, devicePrevTempPrivKey, function(){
+					onDone(devicePrivKey, deviceTempPrivKey, devicePrevTempPrivKey);
+				});
 			});
 			return;
 		}
 		var keys = JSON.parse(data);
 		onDone(Buffer(keys.permanent_priv_key, 'base64'), Buffer(keys.temp_priv_key, 'base64'), Buffer(keys.prev_temp_priv_key, 'base64'));
+	});
+}
+
+function createDir(path, onDone){
+	var mode = parseInt('700', 8);
+	var parent_dir = require('path'+'').dirname(path);
+	fs.mkdir(parent_dir, mode, function(err){
+		console.log('mkdir '+parent_dir+': '+err);
+		fs.mkdir(path, mode, function(err){
+			console.log('mkdir '+path+': '+err);
+			onDone();
+		});
 	});
 }
 
@@ -73,7 +87,7 @@ function writeKeys(devicePrivKey, deviceTempPrivKey, devicePrevTempPrivKey, onDo
 	};
 	fs.writeFile(KEYS_FILENAME, JSON.stringify(keys), 'utf8', function(err){
 		if (err)
-			throw Error("failed to write keys file");
+			throw Error("failed to write keys file "+KEYS_FILENAME);
 		if (onDone)
 			onDone();
 	});
