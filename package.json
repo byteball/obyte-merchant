@@ -1,21 +1,23 @@
 {
-  "name": "byteball-merchant",
-  "description": "Byteball Merchant",
-  "author": "Byteball",
+  "name": "obyte-merchant",
+  "description": "Obyte Merchant",
+  "author": "Obyte",
   "version": "0.1.0",
   "main": "merchant.js",
   "keywords": [
     "merchant",
+    "obyte",
+    "DAG",
     "byteball",
     "chatbot"
   ],
   "license": "MIT",
   "repository": {
-    "url": "git://github.com/byteball/byteball-merchant.git",
+    "url": "git://github.com/byteball/obyte-merchant.git",
     "type": "git"
   },
   "bugs": {
-    "url": "https://github.com/byteball/byteball-merchant/issues"
+    "url": "https://github.com/byteball/obyte-merchant/issues"
   },
   "browser": {
     "request": "browser-request",
@@ -23,6 +25,6 @@
   },
   "dependencies": {
     "bitcore-lib": "^0.13.14",
-    "byteballcore": "git+https://github.com/byteball/byteballcore.git"
+    "ocore": "git+https://github.com/byteball/ocore.git"
   }
 }

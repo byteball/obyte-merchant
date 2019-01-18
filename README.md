@@ -1,4 +1,4 @@
-# Chatbot merchant for Byteball network
+# Chatbot merchant for O<sub>byte</sub> network
 
 This is a demo of a merchant that sells stuff in chat interface.  If you want to sell something for bytes, blackbytes, or another asset, use this demo as a template.
 
@@ -19,10 +19,10 @@ npm install
 
 Before you run the chatbot for the first time, edit these settings in [conf.js](conf.js) or in conf.json in the app data folder:
 
-* `hub`: hub address without wss://, the default is `byteball.org/bb`.
+* `hub`: hub address without wss://, the default is `obyte.org/bb`.
 * `deviceName`: the name of your bot as seen in the chat interface.
 * `permanent_paring_secret`: the pairing secret used to authenticate pairing requests from customers.  Since you want to chat with any potential buyer, it is not really a secret, so use something simple like 0000.  The pairing secret is the part of the pairing code after #.
-* `xPubKey`: extended public key of the home wallet that is to collect funds.  To find it out, open the [GUI wallet](../../../byteball), click gear icon -> Advanced -> Wallet Information, look for "Extended public keys", double-click to select it (it starts with "xpub"), copy and paste into the conf.
+* `xPubKey`: extended public key of the home wallet that is to collect funds.  To find it out, open the [GUI wallet](../../../obyte-gui-wallet), click gear icon -> Advanced -> Wallet Information, look for "Extended public keys", double-click to select it (it starts with "xpub"), copy and paste into the conf.
 * `account`: account number of the home wallet.  Find it out like `xPubKey` above but look for "Account (BIP44)".  The BIP44 derivation path of addresses is `m/44'/0'/account'/is_change/address_index`.
 * `homeDeviceAddress`: device address of the home wallet.  Find it out by opening the Wallet, clicking menu button -> Global preferences, look for "Device address".
 
@@ -40,9 +40,9 @@ Before you can sell stuff, pair the chatbot with its home wallet (the wallet tha
 
 ## TOR
 
-You can configure the merchant to connect to peers through TOR (see [conf.socksHost, conf.socksPort, and conf.socksLocalDNS](../../../byteballcore#confsockshost-confsocksport-and-confsockslocaldns)) in order to hide its IP address.  Your customers don't need to run TOR.
+You can configure the merchant to connect to peers through TOR (see [conf.socksHost, conf.socksPort, and conf.socksLocalDNS](../../../ocore#confsockshost-confsocksport-and-confsockslocaldns)) in order to hide its IP address.  Your customers don't need to run TOR.
 
 ## Customize
 
-If you want to change any defaults, refer to the documentation of [byteballcore](../../../byteballcore), the core Byteball library `require()`'d from here.
+If you want to change any defaults, refer to the documentation of [ocore](../../../ocore), the core O<sub>byte</sub> library `require()`'d from here.
 

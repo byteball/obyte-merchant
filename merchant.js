@@ -1,16 +1,22 @@
 /*jslint node: true */
 "use strict";
-var conf = require('byteballcore/conf.js');
-var device = require('byteballcore/device.js');
-var walletDefinedByKeys = require('byteballcore/wallet_defined_by_keys.js');
-var crypto = require('crypto');
 var fs = require('fs');
-var db = require('byteballcore/db.js');
-var eventBus = require('byteballcore/event_bus.js');
-var desktopApp = require('byteballcore/desktop_app.js');
-require('byteballcore/wallet.js'); // we don't need any of its functions but it listens for hub/* messages
-
+var desktopApp = require('ocore/desktop_app.js');
 var appDataDir = desktopApp.getAppDataDir();
+var path = require('path');
+
+if (require.main === module && !fs.existsSync(appDataDir) && fs.existsSync(path.dirname(appDataDir)+'/byteball-merchant')){
+	console.log('=== will rename old merchant data dir');
+	fs.renameSync(path.dirname(appDataDir)+'/byteball-merchant', appDataDir);
+}
+var conf = require('ocore/conf.js');
+var device = require('ocore/device.js');
+var walletDefinedByKeys = require('ocore/wallet_defined_by_keys.js');
+var crypto = require('crypto');
+var db = require('ocore/db.js');
+var eventBus = require('ocore/event_bus.js');
+require('ocore/wallet.js'); // we don't need any of its functions but it listens for hub/* messages
+
 var KEYS_FILENAME = appDataDir + '/' + conf.KEYS_FILENAME;
 
 var wallet;
@@ -174,7 +180,7 @@ readKeys(function(devicePrivKey, deviceTempPrivKey, devicePrevTempPrivKey){
 	device.setDeviceName(conf.deviceName);
 	device.setDeviceHub(conf.hub);
 	if (conf.bLight){
-		var light_wallet = require('byteballcore/light_wallet.js');
+		var light_wallet = require('ocore/light_wallet.js');
 		light_wallet.setLightVendorHost(conf.hub);
 	}
 	var my_device_pubkey = device.getMyDevicePubKey();
