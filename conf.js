@@ -10,7 +10,7 @@ exports.bIgnoreUnpairRequests = true;
 
 exports.storage = 'sqlite';
 
-exports.hub = 'byteball.org/bb';
+exports.hub = process.env.testnet ? 'obyte.org/bb-test' : 'obyte.org/bb';
 exports.deviceName = 'Merchant Demo';
 exports.permanent_pairing_secret = '0000';
 exports.KEYS_FILENAME = 'keys.json';
