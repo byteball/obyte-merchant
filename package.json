@@ -25,6 +25,6 @@
   },
   "dependencies": {
     "bitcore-lib": "^0.13.14",
-    "ocore": "git+https://github.com/byteball/ocore.git"
+    "ocore": "git+https://github.com/byteball/ocore.git#rocks-and-formulas"
   }
 }
